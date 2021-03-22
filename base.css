@@ -1,0 +1,17 @@
+:root {
+    --text-color:#333; 
+    --black--color:#000;
+    --white-color:#fff;
+    --font-size:12px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'DotGothic16', sans-serif;
+    font-family: 'Hind', sans-serif;
+}
