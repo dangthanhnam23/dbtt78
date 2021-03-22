@@ -1,0 +1,101 @@
+@media only screen and (max-width: 321px) and (min-width: 0px){
+    html {
+        font-size: 40%;
+    }
+    .bar-weather-content-heading {
+        margin-top: 25px;
+    }
+    .bar-weather-content-info {
+        font-size: 1.6rem;
+        margin-top: -10px;
+    }
+    .bar-weather-content-input-icon {
+        right: 2px;
+        
+    }
+    .bar-weather-future  {
+        margin-top: 0px;
+    }
+}
+@media only screen and (max-height: 812px) and (min-height: 600px){
+    html {
+        font-size: 100%;
+    }
+    .bar-weather-content-heading {
+        margin-top: 25px;
+    }
+    .bar-weather-content-info {
+        font-size: 1.6rem;
+    }
+    .bar-weather-content-input-icon {
+        right: 5px;
+    }
+}
+
+
+@media only screen and (max-width: 411px) and (min-width: 321px){
+    html {
+        font-size: 40%;
+}
+    .bar-weather-content-input-icon {
+        right: 10px;
+    }
+}
+@media only screen and (max-width: 576px) and (min-width: 411px){
+    html {
+        font-size: 50%;
+    }
+    .bar-weather-content-input-icon {
+        right: 13px;
+    }
+}
+@media only screen and (max-width: 992px) and (min-width: 768px){
+    html {
+        font-size: 80%;
+    }
+    .bar-weather-content-input-icon {
+        right: 47px;
+    }
+    .bar-weather-img a img {
+        width: 108%;
+    }
+    .bar-weather-content-input-history-item {
+        height: 40px;
+        line-height: 40px;
+    }
+}
+@media only screen and (max-width: 1199px) and (min-width: 992px){
+    html {
+        font-size: 120%;
+    }
+    .bar-weather-content-input-icon {
+        right: 33px;
+    }
+    .bar-weather-img a img {
+        width: 108%;
+    }
+    .bar-weather-content-heading {
+        margin-top:50px
+    }
+    .bar-weather-content-info {
+        margin-top: 50px;
+    }
+    .bar-weather-future {
+        margin-top: 100px;
+    }
+    .bar-weather-content-input-history-item {
+        height: 40px;
+        line-height: 40px;
+    }
+}
+@media only screen and (max-width: 1500px) and (min-width: 1200px){
+    html {
+        font-size: 50%;
+    }
+    .bar-weather-future {
+        margin-top: 20px;
+    }
+    .bar-weather-content-input-icon {
+        right: 92px;
+    }
+}
