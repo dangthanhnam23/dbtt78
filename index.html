@@ -3,103 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Thời Tiết Hôm Nay</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="http://dubaothoitiet.yn.lt/base.css">
-    <link rel="stylesheet" href="/blob/main/mani.css">
-    <script src="/blob/main/moment.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://kit.fontawesome.com/2f00bc7e40.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/blob/main/responsive.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
 </head>
 <body>
-    <div class="app">
-    <div class="content-full">
-        <div class="bar-weather">
-            <div class="bar-weather-img">
-                <a href="#">
-                    <img src="/blob/main/img/bandem.png" alt="trời Mưa" class="bar-weather-img__img"> 
-                </a>
-            </div>
-            <div class="bar-weather-content">
-                <div class="bar-weather-warp">
-                <div class="bar-weather-content-input">
-                     <input type="text" placeholder="Tìm Kiếm Thành Phố" class="bar-weather-content-input-search">
-                     <div class="bar-weather-content-input-icon">
-                        <i class="fas fa-search" class="bar-weather-content-input-icon"></i>
-                     </div>
-                  <div class="bar-weather-content-input-icon__delete">
-                        <i class="fas fa-times" class="bar-weather-content-input-icon"></i>
-                     </div>
-                     <div class="bar-weather-content-input-history">
-                        <ul class="bar-weather-content-input-history-list">
-                           <li class="bar-weather-content-input-history-item">
-                            <p class="bar-weather-content-input-history-item-click">
-                            Hà nội 
-                            </p>
-                           </li>
-                           <li class="bar-weather-content-input-history-item">
-                            <p class="bar-weather-content-input-history-item-click">
-                                Thành phố Hồ chí Minh
-                            </p>
-                           </li>
-                           <li class="bar-weather-content-input-history-item">
-                            <p class="bar-weather-content-input-history-item-click">
-                                - Nhật xét các Bạn Giúp Phát triển Hoàn hão thêm
-                            </p>
-                           </li>
-                           <li class="bar-weather-content-input-history-item-cancel">
-                            <p class="bar-weather-content-input-history-item">
-                               Hủy Hiện thị Lịch sử
-                            </p>
-                           </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="bar-weather-content-heading">
-                  <h3 class="ctiyname">Thành Phố Phú Yên</h3> <span>
-                      <div class="bar-weather-content-heading__mic">
-                      <i class="bar-weather-content-heading__icon fas fa-volume-up">
-                          <span class="bar-weather-content-heading__icon-recoding-icon--text">
-                      bấm vào đấy để nói (Bản thử nghiệm) <br>
-                      <p>Hương dẫn : Thời tiết Tại Thành phố bạn muốn tìm </p>
-                        </span></i>
-                    </span>
-                </div>
-                </div>
-                <div class="bar-weather-content-info">
-                     <p class="bar-weather-content-info-temperature temperature">Nhiệt độ hiện tại : <span>0 Độ</span></p>
-                     <p class="bar-weather-content-info-temperature weather">Thời tiết hiện tại <span>0 Độ</span></p>
-                     <p class="bar-weather-content-info-time">Thời gian : <span>00:00:00</span> </p>
-                </div>
-                <div class="bar-weather-future">
-                    <li class="bar-weather-future--heading">Thông tin Thành Phố</li>
-                    <ul class="bar-weather-future-list">
-                     <li class="bar-weather-future-list-item Sunrise">Mặt Trời Mọc : </li>
-                     <li class="bar-weather-future-list-item sundown">Mặt Trời Lặn : </li>
-                     <li class="bar-weather-future-list-item sound">Độ ấm :</li>
-                     <li class="bar-weather-future-list-item wind">gió :</li>
-                     <button class="bar-weather-future-list-item__btn-future">Xem Thời tiết Tương lai</button>
-                    </ul>
-                </div>
-                 
-            </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="css">
+ <div class="btn">
+     hello
+ </div>
 
-</div>
-<script>
-</script>
-<script src="/blob/main/mani.js">
 
-</script>
-<script src="/blob/main/ip.js">
-
-</script>
+    <script>
+        var btn = document.querySelector(".btn");
+        btn.addEventListener('click', function() {
+            console.log("đã bấm vào đây");
+  let promise = Notification.requestPermission();
+  const notification = new Notification ("Hello")
+  // wait for permission
+})
+    </script>
 </body>
 </html>
