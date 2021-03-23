@@ -1,0 +1,68 @@
+﻿{
+  "ctiy": [
+    {
+   "name":"Binh Định" ,
+    "ctiy":"quy nhon "
+  },
+  {
+   "name":"Binh Phước" ,
+    "ctiy":"đồng xoài"
+  },
+  {
+   "name":" Đắk Lắk ",
+    "ctiy":"Buôn Ma Thuột,"
+  },
+  {
+   "name":"đồng tháp" ,
+    "ctiy":"quy nhon "
+  },
+  {
+   "name":"Đồng Tháp" ,
+    "ctiy":"Sa Đéc"
+  },
+  {
+   "name":"Kiên Giang" ,
+    "ctiy":"Rạch Giấ "
+  },
+  {
+   "name":"Khánh Hòa" ,
+    "ctiy":"Nha trang "
+  },
+  {
+   "name":"Lâm Đồng ",
+    "ctiy":"Đà Lạt"
+  },
+  {
+   "name":" Nghệ an",
+    "ctiy":"Vinh"
+  },
+  {
+   "name":"Ninh Thuận",
+    "ctiy":"Phan Rang - Tháp Chàm"
+  },
+  {
+   "name":"Phú Yên",
+    "ctiy":"Thành phố Tuy Hòa"
+  },
+  {
+   "name":"Quang Ninh" ,
+    "ctiy": "Hạ Long"
+  },
+  {
+   "name":"Quan Bình" ,
+    "ctiy":"Hạ Long"
+  },
+  {
+   "name":"Quang Nam" ,
+    "ctiy": "Tân Kỳ"
+  },
+  {
+   "name":"Tiên Giang" ,
+    "ctiy": "my thọ"
+  },
+  {
+   "name":" Vinh Phúc" ,
+    "ctiy": "Vinh Yên"
+  }
+  ]
+}
