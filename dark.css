@@ -1,0 +1,22 @@
+:root {
+    --text-color: #333;
+    --black--color: #fff;
+    --white-color: #000;
+    --font-size: 12px;
+}
+body {
+    color: #fff;
+}
+.bar-weather-content-input-history {
+    color: #000;
+}
+.bar-weather {
+    width: 100%;
+    height: 100%;
+}
+.bar-weather-content-input-search {
+    color: #fff;
+}
+.bar-weather-content-input-icon i {
+    color: black;
+}
