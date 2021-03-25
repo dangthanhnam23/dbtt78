@@ -1,3 +1,4 @@
+
 const input = document.querySelector(".bar-weather-content-input-search");
 const none = '--'
 const APP_ID = '0e4674234129b91b4de3142d1983a3c5';
@@ -49,6 +50,13 @@ function getweather(text) {
            localStoragereview(data.name);
            cancelhistory();
         }
+        responsiveVoice.speak("Thời tiết hiện tại: " + data.weather[0].description  +  " ,            " +
+        'Nhiệt độ hiện tại: ' + Math.round(data.main.temp) + "Độ" +  " .           " +
+        "độ ậm: "  +  data.main.humidity  +   " .                                  " + 
+        "mặt trời mọc: "   + moment.unix(data.sys.sunrise).format('H:mm')  +  " .            " +
+        "mặt trời lặng : "  + moment.unix(data.sys.sunset).format('H:mm') +  " .           "  + "Hãy cùng Nhau thư Giản  Một Ngày Làm việc Nào"
+        , "Vietnamese Male");
+        document.getElementById('sound').play();
      }
     });
 }
@@ -144,33 +152,29 @@ actionhistory()
 document.querySelector(".bar-weather-future-list-item__btn-future").onclick = function() {
     var text = document.querySelector(".ctiyname").innerText; 
     setdata(text);
-    window.location.href = 'http://dubaothoitiet.yn.lt/api.future';
+    window.location.href = '/thoitiet.html';
 }
 function setdata(x) {
     localStorage.setItem("Getbody" , JSON.stringify(x) )
 };
 function setimg() {
     console.log(d.getHours());
-    if(d.getHours() >= 15 &&  d.getHours() < 18 ) {
+    if(d.getHours() >= 3 &&  d.getHours() < 6 ) {
         console.log(document.querySelector(".cssa"));
         document.querySelector(".css").innerHTML = "<link rel='stylesheet' href='dark.css'>";
        document.querySelector(".bar-weather-img__img").setAttribute("src" , "img/banchieu.png")
     }
-    if(d.getHours() >= 18 &&  d.getHours() < 24 ) {
+    if(d.getHours() >= 6 &&  d.getHours() < 18 ) {
         document.querySelector(".bar-weather-img__img").setAttribute("src" , "img/bandem.png");
         document.querySelector(".css").innerHTML = "<link rel='stylesheet' href='dark.css'>"
      }
-  if(d.getHours() >= 0 &&  d.getHours() < 6 ) {
-        document.querySelector(".bar-weather-img__img").setAttribute("src" , "img/bandem.png");
-        document.querySelector(".css").innerHTML = "<link rel='stylesheet' href='dark.css'>"
-     }
-     if(d.getHours() >= 6 &&  d.getHours() < 15 ) {
-        document.querySelector(".bar-weather-img__img").setAttribute("src" , "img/banngay.png")
+     if(d.getHours() >= 18 &&  d.getHours() < 24 ) {
+        ocument.querySelector(".bar-weather-img__img").setAttribute("src" , "img/banngay.png")
      }
 }
 setimg();
 function getjson(text) {
-var json  = "http://dubaothoitiet.yn.lt/json/ctiy.json"
+var json  = "/json/ctiy.json"
 fetch(json)
   .then(response => response.json())
   .then(function(data) {
@@ -207,6 +211,7 @@ microphone.onclick = function(e) {
         recognition.start();
         console.log(document.querySelector(".bar-weather-content-heading__icon-recoding-icon--text"));
         document.querySelector(".bar-weather-content-heading__icon-recoding-icon--text").innerText  = "bạn hãy nói gì đó";
+        console.log("đã chạy vào đây");
 }
 recognition.onspeechend = () => {
     recognition.stop();
@@ -219,6 +224,6 @@ recognition.onerror = (err) => {
 recognition.onresult = (e) => {
     console.log("onresult" , e);
     const text = e.results[0][0].transcript;
+    console.log("text" , text);
     handleVoice(text);
 }
-  console.log(d);
