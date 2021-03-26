@@ -152,7 +152,7 @@ actionhistory()
 document.querySelector(".bar-weather-future-list-item__btn-future").onclick = function() {
     var text = document.querySelector(".ctiyname").innerText; 
     setdata(text);
-    window.location.href = '/thoitiet.html';
+    window.location.href = 'dbtt78/thoitiet.html';
 }
 function setdata(x) {
     localStorage.setItem("Getbody" , JSON.stringify(x) )
