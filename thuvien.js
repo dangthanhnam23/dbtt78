@@ -1,6 +1,6 @@
 
 const lop =  (lop) => {
   var lop =  document.querySelector(lop);
-return class; 
+return lop; 
 }
 export  {lop};
