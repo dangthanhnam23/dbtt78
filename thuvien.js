@@ -1,6 +1,6 @@
 
-const # =  (class) => {
-  var class =  document.querySelector(class);
+const lop =  (lop) => {
+  var lop =  document.querySelector(lop);
 return class; 
 }
-export  {#};
+export  {lop};
