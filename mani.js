@@ -125,6 +125,7 @@ function localStoragereview(x) {
 }
 actionhistory()
 document.querySelector(".bar-weather-content-input-search").onclick = function() {
+    microphone.click();
     outputdata();
     showhistory();
     actionhistory() 
@@ -239,9 +240,9 @@ const microphone = document.querySelector(".bar-weather-content-heading__icon");
 microphone.onclick = function(e) {
         e.preventDefault();
         recognition.start();
+        console.log("chạy vào đây");
         console.log(document.querySelector(".bar-weather-content-heading__icon-recoding-icon--text"));
         document.querySelector(".bar-weather-content-heading__icon-recoding-icon--text").innerText  = "bạn hãy nói gì đó";
-        console.log("đã chạy vào đây");
 }
 recognition.onspeechend = () => {
     recognition.stop();
