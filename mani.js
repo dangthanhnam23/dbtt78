@@ -15,6 +15,7 @@ const d = new Date();
 let Hours = d.getHours();
 let Minutes = d.getMinutes();
 let Seconds = d.getSeconds();
+let getCtiys = "";
 console.log(screen.height);
 if(Hours < 10 ) {
     console.log("0" + Hours);
@@ -34,6 +35,7 @@ function getweather(text) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${APP_ID}&units=metric&lang=vi`)
     .then(async res=>{
      const data = await res.json();
+     getCtiys = data.name;
      console.log(data);
      if(data.message == "city not found") {
         getjson(text);
@@ -50,15 +52,29 @@ function getweather(text) {
            localStoragereview(data.name);
            cancelhistory();
         }
-        responsiveVoice.speak("Thời tiết hiện tại: " + data.weather[0].description  +  " ,            " +
+        responsiveVoice.setDefaultRate(1.0);
+        responsiveVoice.speak( "Chào Buổi Chiều " +  "                      ." +
+        "Bây Giờ: " + Hours + "Giờ" + ":" + Minutes + "Phút" + ":" + Seconds + "Giây" + "              ." +
+            "Thời tiết" + data.name + "hiện tại: " + data.weather[0].description  +  "             ." +
         'Nhiệt độ hiện tại: ' + Math.round(data.main.temp) + "Độ" +  " .           " +
-        "độ ậm: "  +  data.main.humidity  +   " .                                  " + 
+        "độ ậm: "  +  data.main.humidity  +   " .               " + 
         "mặt trời mọc: "   + moment.unix(data.sys.sunrise).format('H:mm')  +  " .            " +
-        "mặt trời lặng : "  + moment.unix(data.sys.sunset).format('H:mm') +  " .           "  + "Hãy cùng Nhau thư Giản  Một Ngày Làm việc Nào"
+        "mặt trời lặng : "  + moment.unix(data.sys.sunset).format('H:mm') +  " .           "   + 
+        "Chúc Bạn có một ngày vui vẻ ..."
         , "Vietnamese Male");
         document.getElementById('sound').play();
+        tuonglai(data.name);
      }
     });
+}  
+function getCtiy(){
+    var datas; 
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${getCtiys}&appid=${APP_ID}&units=metric&lang=vi`)
+    .then(async res=>{
+        const data = await res.json();
+        var datas = data.name;
+    })
+    return datas
 }
 function actionhistory() {
     var itemhistorys = document.querySelectorAll(".bar-weather-content-input-history-item-click");
@@ -152,7 +168,7 @@ actionhistory()
 document.querySelector(".bar-weather-future-list-item__btn-future").onclick = function() {
     var text = document.querySelector(".ctiyname").innerText; 
     setdata(text);
-    window.location.href = '/dbtt78/thoitiet.html';
+    window.location.href = '/thoitiet.html';
 }
 function setdata(x) {
     localStorage.setItem("Getbody" , JSON.stringify(x) )
@@ -169,7 +185,7 @@ function setimg() {
         document.querySelector(".css").innerHTML = "<link rel='stylesheet' href='dark.css'>"
      }
      if(d.getHours() >= 18 &&  d.getHours() < 24 ) {
-        ocument.querySelector(".bar-weather-img__img").setAttribute("src" , "img/banngay.png")
+     
      }
 }
 setimg();
@@ -182,6 +198,7 @@ fetch(json)
     data.ctiy.map(function(item){
      if(item.name == text) {
          console.log(item.ctiy);
+         var m  = getCtiy();
      x(item.ctiy);
      }
     })
@@ -195,12 +212,25 @@ function x(text) {
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition; 
 const recognition = new SpeechRecognition(); 
 const handleVoice = (text) => {
-    const  handleText = text.toLowerCase();
+    const handleText = text.toLowerCase();
+    var handleTexts =  handleText.split("tiết");
+    console.log(handleTexts[0]);
    if(handleText.includes( "thời tiết tại ")) {
        const location = handleText.split("tại")[1].trim();
     console.log( "location",location);
     getweather(location);
     document.querySelector(".bar-weather-content-input-search").setAttribute("value", location);
+   }
+   if(handleTexts[0] == "kiểm tra thời ") {
+     var heading =  handleTexts[1].split("giờ"); 
+      console.log("ha");
+      var number =  heading[0] * 1 ;
+     if(heading[1] == " chiều") {
+         number += 12;
+     };
+     console.log(number , getCtiys);
+     var city = getCtiy();
+     tuonglai(getCtiys , number);
    }
 }
 recognition.lang = 'vi-VI';
@@ -226,4 +256,46 @@ recognition.onresult = (e) => {
     const text = e.results[0][0].transcript;
     console.log("text" , text);
     handleVoice(text);
+} 
+var tuonglai = (ctiy , Hours) => {
+    var apikey  = '83906ccb430653f8e348926a415ef865';
+    console.log(ctiy , Hours);
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${ctiy}&appid=${apikey}&lang=vi&units=metric`)
+    .then(async res=>{
+     const data = await res.json();
+     console.log(data.list);
+     data.list.map((i , index) => {
+         var day  = d.getDate(); 
+         var year = d.getFullYear(); 
+         var month   = d.getMonth() + 1;
+         if ( month < 10){
+             month = "0"  + month
+         }
+         var text  = year + "-" + month  + "-"+ day + " " +  Hours + ":" + "00"  + ":" + "00";
+         if(text == i.dt_txt) {
+             console.log(data.list[index] , Hours )
+             getvoice(data.list[index] , Hours);
+         
+     }
+    })
+});
+};
+document.querySelector(".btn-giongnoi").onclick = () => {
+    var x = document.querySelector(".testgiongnoi").value; 
+    
+    handleVoice(x);
+}
+function getvoice(data , Hours) {
+    responsiveVoice.setDefaultRate(1.0);
+    responsiveVoice.speak( "Chào Buổi Chiều " +  "                      ." +
+    "Bây Giờ: " + Hours + "Giờ" + ":" + Minutes + "Phút" + ":" + Seconds + "Giây" + "              ." +
+        "Thời tiết" + getCtiys + "hiện tại: " + data.weather[0].description  +  "             ." +
+    'Nhiệt độ '  + Hours +': ' + Math.round(data.main.temp) + "Độ" +  " .           " +
+    "độ ậm: "  +  data.main.humidity  +   " .               " + 
+    "mặt trời mọc: "   + moment.unix(data.sys.sunrise).format('H:mm')  +  " .            " +
+    "mặt trời lặng : "  + moment.unix(data.sys.sunset).format('H:mm') +  " .           "   + 
+    "Chúc Bạn có một ngày vui vẻ ..."
+    , "Vietnamese Male");
+    document.getElementById('sound').play();
+    tuonglai(data.name);
 }
